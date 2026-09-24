@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: v1
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: install
+        run: pip install -r requirements.txt
+
+      - name: tests
+        run: python -m pytest tests/ -q
+
+      # The measurements the README and docs quote. Run in CI so a change
+      # that quietly alters one of them fails here rather than leaving the
+      # documentation describing a repository that no longer exists.
+      - name: the leakage measurements
+        run: |
+          python -m pytest tests/test_leakage_detection.py -q -s
+
+      - name: the correlation finding
+        run: |
+          python -m pytest tests/test_correlation.py -q -s \
+            -k "reference_implementation or interval_width or pit_is_u_shaped or coverage_is_honest or fit_rho_recovers"
+
+      - name: the shrinkage measurements
+        run: |
+          python -m pytest tests/test_shrinkage.py -q -s \
+            -k "worked_table or next_quarter or closer_to_the_truth or 18_of_30 or design_effect"
+
+      - name: the swing finding
+        run: |
+          python -m pytest tests/test_scenarios.py -q -s -k "swing_is_exactly"
+
+      # And the end-to-end paths, so a broken CLI is caught too.
+      - name: cli smoke
+        run: |
+          python -m pfe.cli snapshot
+          python -m pfe.cli reps
+          python -m pfe.cli backtest --quarters 2025Q1 2025Q2 --horizons 60 --sims 2000
