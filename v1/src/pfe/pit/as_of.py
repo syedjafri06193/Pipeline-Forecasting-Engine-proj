@@ -27,7 +27,7 @@ is marked unavailable.
 from __future__ import annotations
 
 import bisect
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date
 
 import pandas as pd

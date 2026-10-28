@@ -28,9 +28,8 @@ from datetime import date, timedelta
 import numpy as np
 import pandas as pd
 
-from ..aggregate.simulate import Forecast, independent_forecast, simulate
+from ..aggregate.simulate import independent_forecast, simulate
 from ..features.build import (
-    CohortNorms,
     deal_periods,
     feature_columns,
     fit_cohort_norms,

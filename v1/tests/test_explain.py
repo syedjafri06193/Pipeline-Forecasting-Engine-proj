@@ -17,7 +17,6 @@ are that kind of sentence.
 from __future__ import annotations
 
 import pandas as pd
-import pytest
 
 from pfe.explain.narrate import DISCLAIMER, explain_frame, narrate, reasons_for
 

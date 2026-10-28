@@ -11,7 +11,7 @@ demonstrating why rather than asserting it.
 
 ```bash
 pip install -r requirements.txt
-PYTHONPATH=src python -m pytest tests/ -q          # 81 tests
+PYTHONPATH=src python -m pytest tests/ -q          # 82 tests
 PYTHONPATH=src python -m pfe.cli backtest          # the comparison table
 PYTHONPATH=src python -m pfe.cli forecast          # one quarter, explained
 PYTHONPATH=src python -m pfe.cli reps              # roll-ups with intervals
@@ -132,7 +132,7 @@ model's 83%.
 **Not predicted:** the gradient-boosted hazard model **does not beat
 cohort conversion**, which is M4's stated bar. Reported rather than tuned
 around, with the three candidate reasons in
-[docs/notes-on-the-spec.md](docs/notes-on-the-spec.md) §10 — the most
+[docs/notes-on-the-spec.md](../1—Documentation/v1/notes-on-the-spec.md) §10 — the most
 likely being that the hazard recursion holds each deal's state fixed
 across every future period, which is thirteen weeks of assuming nothing
 changes at T-90, and which matches the table's widest gap.
@@ -140,7 +140,7 @@ changes at T-90, and which matches the table's widest gap.
 ## Where the design document is wrong
 
 Four defects, each measured rather than asserted. Full write-up in
-[docs/notes-on-the-spec.md](docs/notes-on-the-spec.md).
+[docs/notes-on-the-spec.md](../1—Documentation/v1/notes-on-the-spec.md).
 
 **§8.2's simulator contradicts §8.1's algebra, in the unsafe direction.**
 The code feeds ρ into a latent Gaussian; the algebra treats ρ as the

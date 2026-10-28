@@ -13,13 +13,11 @@ win rate, so "did shrinkage get closer to the truth" is unanswerable.
 from __future__ import annotations
 
 from collections import defaultdict
-from datetime import date
 
 import numpy as np
 import pytest
 
 from pfe.models.hierarchical import (
-    ShrunkEstimate,
     fit_hierarchy,
     fit_prior_strength,
     shrink,
@@ -399,7 +397,6 @@ def test_design_effect_restores_interval_coverage():
     number of independent units is small, and a claim has to be stated
     with that in mind.
     """
-    import pandas as pd
 
     rows = []
     for seed, qs, per_q, nreps in (
