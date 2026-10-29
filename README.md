@@ -56,3 +56,40 @@ All documentation lives in [`1—Documentation/`](1—Documentation/README.md).
 | [v1](v1/) | Point-in-time features, calibrated hazard + cohort models, shrinkage, correlated aggregation, backtest | — |
 
 Add a row per version as new iterations land.
+
+<!-- project-metrics:start -->
+## Project Metrics
+
+[![Stars](https://img.shields.io/github/stars/syedjafri06193/Pipeline-Forecasting-Engine-proj?style=flat-square)](https://github.com/syedjafri06193/Pipeline-Forecasting-Engine-proj/stargazers) [![Forks](https://img.shields.io/github/forks/syedjafri06193/Pipeline-Forecasting-Engine-proj?style=flat-square)](https://github.com/syedjafri06193/Pipeline-Forecasting-Engine-proj/forks) [![Open issues](https://img.shields.io/github/issues/syedjafri06193/Pipeline-Forecasting-Engine-proj?style=flat-square)](https://github.com/syedjafri06193/Pipeline-Forecasting-Engine-proj/issues) [![Last commit](https://img.shields.io/github/last-commit/syedjafri06193/Pipeline-Forecasting-Engine-proj/improvements?style=flat-square)](https://github.com/syedjafri06193/Pipeline-Forecasting-Engine-proj/commits/improvements) [![Commits](https://img.shields.io/github/commit-activity/t/syedjafri06193/Pipeline-Forecasting-Engine-proj?style=flat-square)](https://github.com/syedjafri06193/Pipeline-Forecasting-Engine-proj/commits/improvements) [![Top language](https://img.shields.io/github/languages/top/syedjafri06193/Pipeline-Forecasting-Engine-proj?style=flat-square)](https://github.com/syedjafri06193/Pipeline-Forecasting-Engine-proj) [![Repo size](https://img.shields.io/github/repo-size/syedjafri06193/Pipeline-Forecasting-Engine-proj?style=flat-square)](https://github.com/syedjafri06193/Pipeline-Forecasting-Engine-proj)
+
+### Code
+
+| Metric | Value |
+|---|---|
+| Lines of code | 4,184 |
+| Source files | 26 |
+| Tracked files | 50 |
+| Documentation | 9 Markdown files (26,788 words), 1 PDF |
+| Commits | 8 |
+| Contributors | 1 |
+| Active | 2026-09-11 → 2026-10-28 |
+
+| Language | Lines | Share |
+|---|---:|---:|
+| Python | 4,159 | 99.4% |
+| TOML | 19 | 0.5% |
+| INI | 6 | 0.1% |
+
+### Performance
+
+| Metric | Result |
+|---|---|
+| Backtest | Walk-forward, 6 quarters, 4 horizons |
+| Coverage of nominal 80% interval, correlated | **67–83%** (vs 33–50% independent) |
+| 80 simulated quarters, ρ = 0.10 | 79% coverage vs 16% independent |
+| CRPS at T-14, best model vs manager commit | 199k vs 563k |
+
+<sub>Simulated figures (from the project's own simulator), recorded in [`1—Documentation/v1/backtest-results.md`](1%E2%80%94Documentation/v1/backtest-results.md).</sub>
+
+<sub>Code stats as of 2026-10-28, counted with pygount (comments and blank lines excluded). Badges update live.</sub>
+<!-- project-metrics:end -->
