@@ -329,7 +329,6 @@ class Generator:
         rep_rate: float,
     ) -> Deal:
         rng = self.rng
-        cfg = self.cfg
 
         # Amount scales with segment, log-normal within it.
         scale = {"SMB": 18_000, "Mid-Market": 70_000, "Enterprise": 280_000}[segment]

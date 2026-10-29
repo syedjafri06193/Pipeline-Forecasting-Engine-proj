@@ -28,11 +28,7 @@ from .explain.narrate import DISCLAIMER, explain_frame, forecast_header
 from .features.build import fit_cohort_norms, pipeline_frame
 from .models.baselines import (
     CohortConversion,
-    ManagerCommit,
-    StageWeighted,
     quarter_bounds,
-    quarter_of,
-    stage_entry_observations,
 )
 from .models.hierarchical import fit_hierarchy, sigma_between
 from .pit.as_of import PointInTime
@@ -181,13 +177,10 @@ def cmd_forecast(args):
     pipe = pipeline_frame(pit, as_of, norms, rep_rate, rep_n)
 
     # The forecast uses cohort conversion, which is the best deal-level
-    # model on this data -- see docs/backtest-results.md. Stage-weighted
-    # is fitted alongside it only so the length-bias report has something
-    # to say.
+    # model on this data -- see 1—Documentation/v1/backtest-results.md.
     from .backtest.harness import _cohort_observations
 
     cohort = CohortConversion.fit(_cohort_observations(pit, deals, as_of))
-    stagew = StageWeighted.fit(stage_entry_observations(deals, as_of))
     p = cohort.predict(pipe, 60 if args.horizon > 45 else 30)
 
     d = pipe[["deal_id", "amount", "rep_id"]].copy()
@@ -224,7 +217,7 @@ def cmd_forecast(args):
     print(
         f"\n  Top 5 deals hold {sw.concentration(5):.0%} of the total swing.\n"
         f"  Note: swing here equals the deal amount exactly -- see "
-        f"docs/notes-on-the-spec.md.\n"
+        f"1—Documentation/v1/notes-on-the-spec.md.\n"
         f"  For 'which deals drive the variance', read the last column."
     )
 

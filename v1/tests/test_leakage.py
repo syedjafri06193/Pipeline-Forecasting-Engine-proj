@@ -14,7 +14,6 @@ from __future__ import annotations
 
 from datetime import date, timedelta
 
-import numpy as np
 import pandas as pd
 import pytest
 from hypothesis import HealthCheck, given, settings
@@ -27,7 +26,7 @@ from pfe.features.build import (
     pipeline_frame,
 )
 from pfe.pit.as_of import LeakageError, PointInTime
-from pfe.synth.generate import STAGES, Config, Deal, Event, build, to_tables
+from pfe.synth.generate import STAGES, Config, Deal, build, to_tables
 
 BASE = date(2024, 1, 8)
 

@@ -22,7 +22,7 @@ import pytest
 from pfe.features.build import features_from_state, fit_cohort_norms
 from pfe.models.calibrate import CalibrationLeak, Calibrator
 from pfe.pit.as_of import PointInTime
-from pfe.synth.generate import Config, build, to_tables
+from pfe.synth.generate import Config, build
 
 from .test_leakage import _norms, _pit_for, deal_strategy  # noqa: F401
 

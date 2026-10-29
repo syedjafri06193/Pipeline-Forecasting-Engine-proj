@@ -11,7 +11,6 @@ from pfe.aggregate.swing import gap_to_quota, swing
 from pfe.scenarios.scenarios import (
     CausalOverreach,
     Intervention,
-    Scenario,
     compare,
     deal_discounted,
     deal_lost,

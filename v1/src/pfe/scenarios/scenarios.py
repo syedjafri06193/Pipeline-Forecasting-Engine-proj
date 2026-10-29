@@ -28,9 +28,7 @@ would build it as a scenario and nobody would notice.
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from datetime import date, timedelta
 
-import numpy as np
 import pandas as pd
 
 from ..aggregate.simulate import Forecast, simulate
